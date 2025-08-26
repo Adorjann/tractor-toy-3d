@@ -1,19 +1,393 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Red Tractor for Sale - Professional Agricultural Equipment</title>
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .content-section {
+            flex: 1;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .model-section {
+            flex: 1;
+            position: relative;
+            min-height: 100vh;
+        }
+
         model-viewer {
             width: 100%;
             height: 100%;
-            background-color: #eee;
+            background: transparent;
+            --poster-color: transparent;
+        }
+
+        .hero {
+            max-width: 600px;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: #dc3545;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            color: #f8f9fa;
+            font-weight: 300;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+
+        .description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            color: #e9ecef;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .spec-card {
+            background: rgba(220, 53, 69, 0.15);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid rgba(220, 53, 69, 0.3);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .spec-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(220, 53, 69, 0.6);
+            box-shadow: 0 10px 25px rgba(220, 53, 69, 0.2);
+        }
+
+        .spec-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #dc3545;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .spec-value {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .pricing {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .price {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #ffc107;
+            margin-bottom: 0.5rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            display: block;
+        }
+
+        .price-note {
+            font-size: 1rem;
+            color: #adb5bd;
+            font-style: italic;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #dc3545, #c82333);
+            color: white;
+            border: none;
+            padding: 1.2rem 3rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 6px 20px rgba(220, 53, 69, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(220, 53, 69, 0.6);
+            background: linear-gradient(45deg, #c82333, #a71e2a);
+        }
+
+        .contact-info {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-info h3 {
+            color: #dc3545;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .badge {
+            background: #dc3545;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .model-section {
+                min-height: 50vh;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .price {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .price {
+                font-size: 2.5rem;
+            }
+            
+            .cta-button {
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
+            }
+            
+            .contact-details {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Custom cursor following animation */
+        model-viewer {
+            --interaction-pointer: none;
         }
     </style>
 </head>
 
 <body>
-    <model-viewer  camera-controls auto-rotate alt="A 3D model of a tractor toy" src="tractor.glb">
-    </model-viewer>
+    <div class="container">
+        <div class="content-section">
+            <div class="badge">🚜 Premium Quality</div>
+            
+            <div class="hero">
+                <h1>PREMIUM RED TRACTOR</h1>
+                <p class="subtitle">Professional Grade Agricultural Equipment</p>
+                <p class="description">
+                    This exceptional red tractor combines unmatched power, reliability, and efficiency. 
+                    Perfect for serious farming operations, landscaping projects, and heavy-duty agricultural work. 
+                    Meticulously maintained and ready for immediate deployment on your land.
+                </p>
+            </div>
+
+            <div class="specs-grid">
+                <div class="spec-card">
+                    <div class="spec-title">Engine Power</div>
+                    <div class="spec-value">125 HP</div>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-title">Model Year</div>
+                    <div class="spec-value">2021</div>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-title">Operating Hours</div>
+                    <div class="spec-value">850 hrs</div>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-title">Transmission</div>
+                    <div class="spec-value">Automatic</div>
+                </div>
+            </div>
+
+            <div class="pricing">
+                <span class="price">$52,500</span>
+                <p class="price-note">Financing available • Trade-ins accepted</p>
+            </div>
+
+            <div class="cta-section">
+                <a href="tel:+15551234567" class="cta-button">Call Now to Buy</a>
+            </div>
+
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <span>(555) 123-4567</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <span>sales@tractordeals.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>Farm Equipment Center</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="model-section">
+            <model-viewer 
+                id="tractor-model"
+                camera-controls 
+                auto-rotate 
+                auto-rotate-delay="3000"
+                rotation-per-second="0.5rad"
+                alt="A 3D model of a premium red tractor" 
+                src="tractor.glb"
+                environment-image="neutral"
+                exposure="1"
+                shadow-intensity="1">
+            </model-viewer>
+        </div>
+    </div>
+
+    <script>
+        const modelViewer = document.getElementById('tractor-model');
+        let isMouseOverModel = false;
+        
+        // Mouse tracking for cursor following
+        document.addEventListener('mousemove', (event) => {
+            const rect = modelViewer.getBoundingClientRect();
+            const isOverModel = (
+                event.clientX >= rect.left &&
+                event.clientX <= rect.right &&
+                event.clientY >= rect.top &&
+                event.clientY <= rect.bottom
+            );
+            
+            if (isOverModel) {
+                isMouseOverModel = true;
+                
+                // Calculate mouse position relative to model viewer
+                const x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+                const y = ((event.clientY - rect.top) / rect.height) * 2 - 1;
+                
+                // Convert to spherical coordinates for camera orbit
+                const theta = x * Math.PI * 0.5; // Horizontal rotation
+                const phi = (y * Math.PI * 0.25) + (Math.PI * 0.5); // Vertical rotation
+                
+                // Set camera orbit based on mouse position
+                const orbitString = `${theta}rad ${Math.max(0.1, Math.min(Math.PI - 0.1, phi))}rad auto`;
+                modelViewer.setAttribute('camera-orbit', orbitString);
+                
+                // Disable auto-rotate when mouse is controlling
+                modelViewer.removeAttribute('auto-rotate');
+            } else if (isMouseOverModel) {
+                isMouseOverModel = false;
+                // Re-enable auto-rotate when mouse leaves
+                modelViewer.setAttribute('auto-rotate', '');
+                modelViewer.setAttribute('auto-rotate-delay', '2000');
+            }
+        });
+        
+        // Enhanced interaction
+        modelViewer.addEventListener('load', () => {
+            console.log('Tractor model loaded successfully!');
+        });
+        
+        // Add smooth transitions
+        modelViewer.style.transition = 'all 0.3s ease';
+    </script>
 </body>
 
 </html>
